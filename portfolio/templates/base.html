@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap" rel="stylesheet">
+    <title>{% block title %} {% endblock %}</title>
+    
+</head>
+<body>
+    <div class="nav-menu">
+        <div class="logo"><a href="{% url 'home' %}"><h1>ONELLVINE</h1></a></div>
+        <div class="links">
+            <ol>
+                <li><a class="nav-link" href="{% url 'portfolio' %}">Portfolio</a></li>
+                <li><a class="nav-link" href="{% url 'resume' %}">Resume</a></li>
+                <li><a class="nav-link" href="{% url 'cover_letter' %}">Cover Letter</a></li>
+                <li><a class="nav-link" href="{% url 'contact' %}">Hire Me</a></li>
+            </ol>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="content">    
+    {% block body %}
+    {% endblock %}
+    </div>
+    <hr>
+    <div class="footer">
+        <div class="contacts">
+            <p class="contacts">CONTACTS</p>
+            <p>Tel: +254 11-341-3035</p>
+            <p>Mail: <a class="email-address" href="mailto:onellvine@gmail.com">onellvine@gmail.com</a></p>
+        </div>
+        <p>#Experience my Skills</p>
+    </div>
+    <script src="{% static 'portfolio/js/script.js' %}"></script>
+</body>
+</html>

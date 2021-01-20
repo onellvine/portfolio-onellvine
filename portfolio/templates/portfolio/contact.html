@@ -1,0 +1,14 @@
+{% extends '../base.html' %}
+{% block title %} onellvine | Hire Me {% endblock %}
+
+{% block body %}
+    <div class="contact-form">
+        <label for="title">Job Title (Role)</label> <br>
+        <input type="text" name="title" id="title" placeholder="example: Software Developer">
+        <br>
+        <label for="role">Role</label> <br>
+        <textarea name="role" id="role" cols="60" rows="8" placeholder="A brief description of what the role entails"></textarea>
+        <br><br>
+        <input type="submit" value="Hire Me">
+    </div>
+{% endblock %}

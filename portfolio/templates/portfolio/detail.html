@@ -1,0 +1,20 @@
+{% extends '../base.html' %}
+{% block title %} onellvine | {{ project.title }} {% endblock %}
+
+{% block body %}
+    <div class="project-detail" style="padding: 0; margin: 0;">
+        <div class="project-title" style="width: 70%;">
+            <h3 style="text-align: left; ">
+                {{ project.title }}
+            </h3>
+            <ul class="tags">
+                {% for tag in tags %}
+                    <li>#{{ tag }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class=""></div>
+        <img class="detail-img" src="{{ project.image.url }}" alt="{{ project.title }} Image" width="70%" height="450px">
+        <p style="font-size: 1.2em; width: 70%; text-align: left;">{{ project.description }}</p>
+    </div>
+{% endblock %}
