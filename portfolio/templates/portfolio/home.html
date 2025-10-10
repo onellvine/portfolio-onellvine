@@ -6,31 +6,52 @@
 
 {% block body %}
 
-<div class="row-flex">
-    <div class="greetings">
-        <h1>HI,</h1>
-        <h2>I AM <font style="color: #8BC34A">NELLVINE OUMA</font>,</h2>
-        <h3 style="color: #d84315;">A JR. SOFTWARE DEVELOPER ...</h3>
-        <button>my cover letter</button>
-        <button>my resume</button>
-    </div>
-    <div class="photo">
-        <img src="{% static 'portfolio/images/php developer.png' %}" alt="Python Developer">
-    </div>
-</div>
-<div class="clear"></div>
-<div class="about-section">
-    <div class="about-photo">
-        <img src="{% static 'portfolio/images/technologist.png' %}" alt="About me" height="400px">
-    </div>
-    <div class="about-me">
-        <h2>About me...</h2>
+    <section class="hero">
+      <div class="hero-left">
+        <h2>Hi — I’m <span style="color:var(--accent-2)">Nellvine Ouma</span>. I build fast, usable software experiences.</h2>
         <p>Enthusiastic programmer and software developer inspired to contribute to software solutions to real-world
             problems. Motivated, hardworking and ready to learn new things and adjust to the requirements of the
             industry. Intermediate to advanced understanding of software fields such as Database Systems, Web
             Development and Machine Learning. Seeking to grow knowledge in the fields of Computer Science and
             Mathematics as they contribute to solutions to real-world challenges.</p>
-    </div>
-</div>
-<div class="clear"></div>
+        <div class="btn-row">
+          <a class="btn primary" href="{% url 'portfolio' %}">See my work</a>
+          <a class="btn ghost" href="{% url 'contact' %}">Hire me</a>
+        </div>
+
+        <div style="margin-top:22px">
+          <strong>Core skills</strong>
+          <div class="skills">
+            <div class="skill">C/C++</div>
+            <div class="skill">Java</div>
+            <div class="skill">Python, Django, Flask, Machine Learning and AI</div>
+            <div class="skill">Node.js, React, Angular, React Native</div>
+            <div class="skill">PHP, WordPress</div>
+            <div class="skill">REST APIs</div>
+            <div class="skill">OpenGL</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="profile">
+          <div class="avatar">OV</div>
+          <div class="meta">
+            <strong>Nellvine</strong>
+            <p class="small">Nairobi, Kenya • Open to remote roles</p>
+            <div style="margin-top:8px" class="small">Email: <a href="mailto:onellvine@gmail.com">onellvine@gmail.com</a></div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px">
+          <h4 style="margin:0 0 6px">Selected clients</h4>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+            <div style="background:#f3f7ff;padding:8px;border-radius:8px;font-weight:700;color:#0b63d6">HCGCCK</div>
+            <div style="background:#fff7f1;padding:8px;border-radius:8px;font-weight:700;color:#d9731a">Nahi</div>
+            <div style="background:#f6fffb;padding:8px;border-radius:8px;font-weight:700;color:#07966a">EduSite</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
 {% endblock %}
