@@ -3,19 +3,103 @@
 {% block title %} onellvine | Portfolio {% endblock %}
 
 {% block body %}
-    
-    
-    <div class="row">
-        {% for project in projects %}
-            <div class="col ">
-                <a href="{% url 'detail' project.id %}">
-                    <img class="demo cursor" src="{{ project.image.url }}" alt="project thumbnail" width="100%" height="300">
 
-                    <h4 style="margin: 0;">{{ project.title }}</h4>
-                </a>
-            </div>
-        {% endfor %}
+<section id="portfolio">
+  <h3 class="section-title">Portfolio — Selected Projects</h3>
+  <div class="grid">
+  {% for project in projects %}
+    <!-- Project 1 -->
+    <article class="card" data-title="{{ project.title }}" data-desc="{{ project.description }}" data-tags="WordPress,Payments,UX">
+      <div class="thumb">
+        <!-- placeholder image (SVG) to avoid external links -->
+        <img class="demo cursor" src="{{ project.image.url }}" alt="project thumbnail">
+        <!-- <svg width="100%" height="100%" viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#0b74e3" />
+              <stop offset="1" stop-color="#0ea5a4" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#g1)" rx="8"/>
+          <g fill="rgba(255,255,255,0.9)">
+            <rect x="56" y="60" width="220" height="28" rx="6"/>
+            <rect x="56" y="102" width="420" height="18" rx="6"/>
+          </g>
+        </svg> -->
+      </div>
+      <div class="card-body">
+        <h4>{{ project.title }}</h4>
+        <p class="small">{{ project.description }}</p>
+        <div class="tags">
+          <span class="tag">{{ project.tags }}</span>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
     </div>
-        
-    
+</section>
+
+  <!-- Modal (project detail) -->
+  <div id="modalBackdrop" class="modal-backdrop">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="close" onclick="closeModal()">✕</button>
+      <h4 id="modalTitle">Title</h4>
+      <p id="modalDesc" class="small">Description</p>
+      <div style="margin-top:12px" id="modalTags"></div>
+    </div>
+  </div>
+
+  <script>
+    // dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // card click open modal
+    document.querySelectorAll('.card').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        const title = card.getAttribute('data-title') || 'Project';
+        const desc = card.getAttribute('data-desc') || '';
+        const tags = (card.getAttribute('data-tags')||'').split(',');
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('modalDesc').textContent = desc;
+        const holder = document.getElementById('modalTags');
+        holder.innerHTML = '';
+        tags.forEach(t => {
+          if(!t.trim()) return;
+          const el = document.createElement('span');
+          el.textContent = t.trim();
+          el.style.display='inline-block';el.style.marginRight='8px';el.style.padding='6px 8px';el.style.background='#f2f8f9';el.style.borderRadius='8px';el.style.fontWeight='700';el.style.color='var(--accent-2)';
+          holder.appendChild(el);
+        });
+        openModal();
+      })
+    })
+
+    function openModal(){
+      const mb = document.getElementById('modalBackdrop');
+      mb.style.display = 'grid';
+    }
+    function closeModal(){
+      const mb = document.getElementById('modalBackdrop');
+      mb.style.display = 'none';
+    }
+
+    // fake contact submit
+    function submitContact(e){
+      e.preventDefault();
+      const btn = document.querySelector('button[type=submit]');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      setTimeout(()=>{
+        alert('Thanks — message sent (demo). I will contact you shortly.');
+        btn.textContent = 'Send message';
+        btn.disabled = false;
+        document.getElementById('contactForm').reset();
+      },900);
+    }
+
+    // close modal on ESC
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); })
+  </script>
 {% endblock %}
+
