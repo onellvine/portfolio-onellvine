@@ -7,9 +7,10 @@
 <section id="portfolio">
   <h3 class="section-title">Portfolio — Selected Projects</h3>
   <div class="grid">
-  {% for project in projects %}
+    {% for project in projects %}
     <!-- Project 1 -->
-    <article class="card" data-title="{{ project.title }}" data-desc="{{ project.description }}" data-tags="WordPress,Payments,UX">
+    <article class="card" data-title="{{ project.title }}" data-desc="{{ project.description }}"
+      data-tags="WordPress,Payments,UX">
       <div class="thumb">
         <!-- placeholder image (SVG) to avoid external links -->
         <img class="demo cursor" src="{{ project.image.url }}" alt="project thumbnail">
@@ -36,70 +37,69 @@
       </div>
     </article>
     {% endfor %}
-    </div>
+  </div>
 </section>
 
-  <!-- Modal (project detail) -->
-  <div id="modalBackdrop" class="modal-backdrop">
-    <div class="modal" role="dialog" aria-modal="true">
-      <button class="close" onclick="closeModal()">✕</button>
-      <h4 id="modalTitle">Title</h4>
-      <p id="modalDesc" class="small">Description</p>
-      <div style="margin-top:12px" id="modalTags"></div>
-    </div>
+<!-- Modal (project detail) -->
+<div id="modalBackdrop" class="modal-backdrop">
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="close" onclick="closeModal()">✕</button>
+    <h4 id="modalTitle">Title</h4>
+    <p id="modalDesc" class="small">Description</p>
+    <div style="margin-top:12px" id="modalTags"></div>
   </div>
+</div>
 
-  <script>
-    // dynamic year
-    document.getElementById('year').textContent = new Date().getFullYear();
+<script>
+  // dynamic year
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    // card click open modal
-    document.querySelectorAll('.card').forEach(card => {
-      card.style.cursor = 'pointer';
-      card.addEventListener('click', () => {
-        const title = card.getAttribute('data-title') || 'Project';
-        const desc = card.getAttribute('data-desc') || '';
-        const tags = (card.getAttribute('data-tags')||'').split(',');
-        document.getElementById('modalTitle').textContent = title;
-        document.getElementById('modalDesc').textContent = desc;
-        const holder = document.getElementById('modalTags');
-        holder.innerHTML = '';
-        tags.forEach(t => {
-          if(!t.trim()) return;
-          const el = document.createElement('span');
-          el.textContent = t.trim();
-          el.style.display='inline-block';el.style.marginRight='8px';el.style.padding='6px 8px';el.style.background='#f2f8f9';el.style.borderRadius='8px';el.style.fontWeight='700';el.style.color='var(--accent-2)';
-          holder.appendChild(el);
-        });
-        openModal();
-      })
+  // card click open modal
+  document.querySelectorAll('.card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      const title = card.getAttribute('data-title') || 'Project';
+      const desc = card.getAttribute('data-desc') || '';
+      const tags = (card.getAttribute('data-tags') || '').split(',');
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalDesc').textContent = desc;
+      const holder = document.getElementById('modalTags');
+      holder.innerHTML = '';
+      tags.forEach(t => {
+        if (!t.trim()) return;
+        const el = document.createElement('span');
+        el.textContent = t.trim();
+        el.style.display = 'inline-block'; el.style.marginRight = '8px'; el.style.padding = '6px 8px'; el.style.background = '#f2f8f9'; el.style.borderRadius = '8px'; el.style.fontWeight = '700'; el.style.color = 'var(--accent-2)';
+        holder.appendChild(el);
+      });
+      openModal();
     })
+  })
 
-    function openModal(){
-      const mb = document.getElementById('modalBackdrop');
-      mb.style.display = 'grid';
-    }
-    function closeModal(){
-      const mb = document.getElementById('modalBackdrop');
-      mb.style.display = 'none';
-    }
+  function openModal() {
+    const mb = document.getElementById('modalBackdrop');
+    mb.style.display = 'grid';
+  }
+  function closeModal() {
+    const mb = document.getElementById('modalBackdrop');
+    mb.style.display = 'none';
+  }
 
-    // fake contact submit
-    function submitContact(e){
-      e.preventDefault();
-      const btn = document.querySelector('button[type=submit]');
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-      setTimeout(()=>{
-        alert('Thanks — message sent (demo). I will contact you shortly.');
-        btn.textContent = 'Send message';
-        btn.disabled = false;
-        document.getElementById('contactForm').reset();
-      },900);
-    }
+  // fake contact submit
+  function submitContact(e) {
+    e.preventDefault();
+    const btn = document.querySelector('button[type=submit]');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    setTimeout(() => {
+      alert('Thanks — message sent (demo). I will contact you shortly.');
+      btn.textContent = 'Send message';
+      btn.disabled = false;
+      document.getElementById('contactForm').reset();
+    }, 900);
+  }
 
-    // close modal on ESC
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); })
-  </script>
+  // close modal on ESC
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); })
+</script>
 {% endblock %}
-
