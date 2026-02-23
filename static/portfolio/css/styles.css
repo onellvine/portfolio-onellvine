@@ -24,7 +24,7 @@
     /* Header */
     header{backdrop-filter: blur(6px);position:sticky;top:12px;z-index:50}
     .nav{
-      display:flex;align-items:center;justify-content:space-between;padding:14px;background:transparent;margin-bottom:18px
+      display:flex;align-items:center;justify-content:space-between;padding:0px;background:transparent;margin-bottom:18px
     }
     .brand{display:flex;align-items:center;gap:12px}
     .logo{
@@ -101,4 +101,6 @@
       .grid{grid-template-columns:1fr}
       .hero{padding:18px 0}
       .hero-left h2{font-size:1.6rem}
+      .contact {display: block}
+      .contact .info{width:unset}
     }
