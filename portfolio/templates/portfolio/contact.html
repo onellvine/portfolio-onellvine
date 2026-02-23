@@ -1,14 +1,36 @@
 {% extends '../base.html' %}
 {% block title %} onellvine | Hire Me {% endblock %}
-
+{% load static %}
 {% block body %}
-    <div class="contact-form">
-        <label for="title">Job Title (Role)</label> <br>
-        <input type="text" name="title" id="title" placeholder="example: Software Developer">
-        <br>
-        <label for="role">Role</label> <br>
-        <textarea name="role" id="role" cols="60" rows="8" placeholder="A brief description of what the role entails"></textarea>
-        <br><br>
-        <input type="submit" value="Hire Me">
-    </div>
+    <section id="contact">
+      <h3 class="section-title">Get in touch</h3>
+      <div class="contact">
+        <form id="contactForm" onsubmit="submitContact(event)">
+          <label for="name">Name</label>
+          <input id="name" name="name" required placeholder="Your full name" />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="you@domain.com" />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="How can I help you?"></textarea>
+
+          <div style="display:flex;gap:10px">
+            <button type="submit" class="btn primary">Send message</button>
+            <a class="btn ghost" href="mailto:onellvine@gmail.com">Email directly</a>
+          </div>
+        </form>
+
+        <aside class="info">
+          <div class="info-card small" style="background:linear-gradient(90deg,#ffffff,#fbfdff);padding:12px;border-radius:10px">
+            <strong>Contact</strong>
+            <div style="margin-top:8px" class="small">Email: <a href="mailto:onellvine@gmail.com">onellvine@gmail.com</a></div>
+            <div class="small" style="margin-top:6px">Phone: +254 715 613 745</div>
+            <div style="margin-top:10px" class="small">Available for freelance & remote roles.</div>
+          </div>
+
+          <div style="margin-top:12px" class="small">Download resume: <a href="{% static 'portfolio/docs/NELLVINE ODUOR OUMA CV.pdf' %}">Resume (PDF)</a></div>
+        </aside>
+      </div>
+    </section>
 {% endblock %}
