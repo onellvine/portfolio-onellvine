@@ -34,9 +34,17 @@
 
     {% block body %}
     {% endblock %}
-
+    <hr>
     <footer>
-      © <span id="year"></span> Nellvine • Built with care • <a href="#">Privacy</a>
+      <div class="flex">
+        <div class="contact-details">
+          <div class="phone">+254715613745</div>
+          <div class="email">onellvine@gmail.com</div>
+        </div>
+        <div class="note">
+          © <span id="year"></span> Nellvine • Built with care • <a href="{% url 'contact' %}">Contact Me</a>
+        </div>
+      </div>
     </footer>
   </main>
 

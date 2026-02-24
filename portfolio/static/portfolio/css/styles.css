@@ -1,5 +1,9 @@
 :root {
+<<<<<<< HEAD
 	--bg: #f7f8fb;
+=======
+	--bg: #ebecef;
+>>>>>>> origin/feature/polish
 	--card: #ffffff;
 	--muted: #6b7280;
 	--accent: #0ea5a4;
@@ -197,6 +201,49 @@ h3.section-title {
 	gap: 18px
 }
 
+<<<<<<< HEAD
+=======
+.flex {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-self: center;
+}
+
+.work {
+	background: var(--card);
+	border-radius: 12px;
+	padding: 5px 10px;
+	margin: 10px 0;
+	overflow: hidden;
+	box-shadow: 0 8px 26px rgba(16, 24, 40, 0.04);
+	transition: transform .25s ease, box-shadow .25s ease;
+	min-width: 100%;
+}
+
+.company, .location, .period {
+	text-align: center;
+}
+.company {
+	color: #0f172a;
+}
+.role {
+	color: #0b74e3;
+}
+.location {
+	color: #0ea5a4;
+}
+.period {
+	color: #d9731a;
+}
+
+.responsibilities {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+>>>>>>> origin/feature/polish
 .card {
 	background: var(--card);
 	border-radius: 12px;
@@ -343,12 +390,29 @@ textarea {
 }
 
 footer {
+<<<<<<< HEAD
 	margin: 44px 0 70px;
+=======
+	width: 100%;
+	margin: 20px 0;
+	padding: 12px 0;
+>>>>>>> origin/feature/polish
 	text-align: center;
 	color: var(--muted);
 	font-size: 14px
 }
 
+<<<<<<< HEAD
+=======
+.phone, .email {
+	color: #0f172a;
+	font-size: 1.0rem;
+}
+.note {
+	font-size: 1.0rem;
+}
+
+>>>>>>> origin/feature/polish
 /* Modal */
 .modal-backdrop {
 	position: fixed;
