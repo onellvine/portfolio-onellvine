@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'yv+y&t1dcav61p6!yb7m^q4ovstr16#wb!i36bntz_i#=gw7j$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['onellvine.pythonanywhere.com']
+ALLOWED_HOSTS = ['onellvine.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
