@@ -2,10 +2,6 @@ from django.shortcuts import render, get_object_or_404
 from .models import Project
 
 def home(request):
-<<<<<<< HEAD
-    projects = Project.objects.all()
-=======
->>>>>>> origin/feature/polish
     projects = Project.objects.order_by('-id')[:3]
     return render(request, 'portfolio/home.html', {'projects': projects})
 

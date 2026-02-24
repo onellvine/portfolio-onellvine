@@ -1,9 +1,5 @@
 :root {
-<<<<<<< HEAD
-	--bg: #f7f8fb;
-=======
 	--bg: #ebecef;
->>>>>>> origin/feature/polish
 	--card: #ffffff;
 	--muted: #6b7280;
 	--accent: #0ea5a4;
@@ -201,8 +197,6 @@ h3.section-title {
 	gap: 18px
 }
 
-<<<<<<< HEAD
-=======
 .flex {
 	display: flex;
 	flex-direction: column;
@@ -243,7 +237,6 @@ h3.section-title {
 	align-items: center;
 }
 
->>>>>>> origin/feature/polish
 .card {
 	background: var(--card);
 	border-radius: 12px;
@@ -390,20 +383,14 @@ textarea {
 }
 
 footer {
-<<<<<<< HEAD
-	margin: 44px 0 70px;
-=======
 	width: 100%;
 	margin: 20px 0;
 	padding: 12px 0;
->>>>>>> origin/feature/polish
 	text-align: center;
 	color: var(--muted);
 	font-size: 14px
 }
 
-<<<<<<< HEAD
-=======
 .phone, .email {
 	color: #0f172a;
 	font-size: 1.0rem;
@@ -412,7 +399,6 @@ footer {
 	font-size: 1.0rem;
 }
 
->>>>>>> origin/feature/polish
 /* Modal */
 .modal-backdrop {
 	position: fixed;
