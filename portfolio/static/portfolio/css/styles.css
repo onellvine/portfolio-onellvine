@@ -36,6 +36,14 @@ body {
 	margin: 0 auto
 }
 
+section {
+	margin: 40px auto;
+}
+
+hr {
+	color: #d7e0f0;
+}
+
 /* Header */
 header {
 	backdrop-filter: blur(6px);
