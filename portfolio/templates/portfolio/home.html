@@ -6,52 +6,104 @@
 
 {% block body %}
 
-    <section class="hero">
-      <div class="hero-left">
-        <h2>Hi — I’m <span style="color:var(--accent-2)">Nellvine Ouma</span>. I build fast, usable software experiences.</h2>
-        <p>Enthusiastic programmer and software developer inspired to contribute to software solutions to real-world
-            problems. Motivated, hardworking and ready to learn new things and adjust to the requirements of the
-            industry. Intermediate to advanced understanding of software fields such as Database Systems, Web
-            Development and Machine Learning. Seeking to grow knowledge in the fields of Computer Science and
-            Mathematics as they contribute to solutions to real-world challenges.</p>
-        <div class="btn-row">
-          <a class="btn primary" href="{% url 'portfolio' %}">See my work</a>
-          <a class="btn ghost" href="{% url 'contact' %}">Hire me</a>
-        </div>
+<section class="hero">
+  <div class="hero-left">
+    <h2>Hi — I’m <span style="color:var(--accent-2)">Nellvine Ouma</span>. I build fast, usable software experiences.
+    </h2>
+    <p>Enthusiastic programmer and software developer inspired to contribute to software solutions to real-world
+      problems. Motivated, hardworking and ready to learn new things and adjust to the requirements of the
+      industry. Intermediate to advanced understanding of software fields such as Database Systems, Web
+      Development and Machine Learning. Seeking to grow knowledge in the fields of Computer Science and
+      Mathematics as they contribute to solutions to real-world challenges.</p>
+    <div class="btn-row">
+      <!-- <a class="btn primary" href="{% url 'portfolio' %}">See my work</a> -->
+      <a class="btn primary" href="{% url 'contact' %}">Hire me</a>
+    </div>
 
-        <div style="margin-top:22px">
-          <strong>Core skills</strong>
-          <div class="skills">
-            <div class="skill">C/C++</div>
-            <div class="skill">Java</div>
-            <div class="skill">Python, Django, Flask, Machine Learning and AI</div>
-            <div class="skill">Node.js, React, Angular, React Native</div>
-            <div class="skill">PHP, WordPress</div>
-            <div class="skill">REST APIs</div>
-            <div class="skill">OpenGL</div>
-          </div>
+    <div style="margin-top:22px">
+      <h3 class="section-title">Core skills</h3>
+      <div class="skills">
+        <div class="skill">C/C++</div>
+        <div class="skill">Java</div>
+        <div class="skill">Python, Django, Flask, Machine Learning and AI</div>
+        <div class="skill">Node.js, React, Angular, React Native</div>
+        <div class="skill">PHP, WordPress</div>
+        <div class="skill">REST APIs</div>
+        <div class="skill">OpenGL</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="hero-right">
+    <div class="profile">
+      <div class="avatar">ON</div>
+      <div class="meta">
+        <strong>Nellvine</strong>
+        <p class="small">Nairobi, Kenya • Open to junior, entry level, and remote/hybrid roles</p>
+        <div style="margin-top:8px" class="small">Email: <a href="mailto:onellvine@gmail.com">onellvine@gmail.com</a>
         </div>
       </div>
+    </div>
 
-      <aside class="hero-right">
-        <div class="profile">
-          <div class="avatar">ON</div>
-          <div class="meta">
-            <strong>Nellvine</strong>
-            <p class="small">Nairobi, Kenya • Open to junior, entry level, and remote/hybrid roles</p>
-            <div style="margin-top:8px" class="small">Email: <a href="mailto:onellvine@gmail.com">onellvine@gmail.com</a></div>
+    <div style="margin-top:14px">
+      <h4 style="margin:0 0 6px">Selected clients</h4>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+        <div style="background:#f3f7ff;padding:8px;border-radius:8px;font-weight:700;color:#0b63d6">HCGCCK</div>
+        <div style="background:#fff7f1;padding:8px;border-radius:8px;font-weight:700;color:#d9731a">Arckayd Limited
+          Consultancy</div>
+        <div style="background:#f6fffb;padding:8px;border-radius:8px;font-weight:700;color:#07966a">Dove International
+          Wellness Center</div>
+      </div>
+    </div>
+  </aside>
+</section>
+
+<section>
+  <h2 class="section-title">Featured Projects</h2>
+  <div class="grid">
+    {% for project in projects %}
+    <!-- Project 1 -->
+    <a href="#" style="text-decoration: none; color: unset; display: block; min-height: 360px;">
+      <article class="card" data-title="{{ project.title }}" data-desc="{{ project.description }}"
+        data-tags="WordPress,Payments,UX">
+        <div class="thumb">
+          <!-- placeholder image (SVG) to avoid external links -->
+          <img class="demo cursor" src="{{ project.image.url }}" alt="project thumbnail">
+          <!-- <svg width="100%" height="100%" viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#0b74e3" />
+              <stop offset="1" stop-color="#0ea5a4" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#g1)" rx="8"/>
+          <g fill="rgba(255,255,255,0.9)">
+            <rect x="56" y="60" width="220" height="28" rx="6"/>
+            <rect x="56" y="102" width="420" height="18" rx="6"/>
+          </g>
+        </svg> -->
+        </div>
+        <div class="card-body">
+          <h4>{{ project.title }}</h4>
+          <p class="small">{{ project.description }}</p>
+          <div class="tags">
+            <span class="tag">{{ project.tags }}</span>
           </div>
         </div>
+      </article>
+    </a>
+    {% endfor %}
+  </div>
+  <div style="text-align: center;">
+    <a class="btn primary" href="{% url 'portfolio' %}">See My Featured Work</a>
+  </div>
+</section>
 
-        <div style="margin-top:14px">
-          <h4 style="margin:0 0 6px">Selected clients</h4>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
-            <div style="background:#f3f7ff;padding:8px;border-radius:8px;font-weight:700;color:#0b63d6">HCGCCK</div>
-            <!-- <div style="background:#fff7f1;padding:8px;border-radius:8px;font-weight:700;color:#d9731a">Nahi</div> -->
-            <!-- <div style="background:#f6fffb;padding:8px;border-radius:8px;font-weight:700;color:#07966a">EduSite</div> -->
-          </div>
-        </div>
-      </aside>
-    </section>
+<section>
+  <h2 class="section-title">Work History</h2>
+  <div class="grid">
+    
+  </div>
+</section>
 
 {% endblock %}
